@@ -1,2 +1,2 @@
 # chrome-extension-eval
-provide function used utility functions for chrome extension on InspectedWindow
+Provide commonly used utility functions for Chrome extension development that can be executed on the InspectedWindow.
