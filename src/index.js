@@ -60,6 +60,10 @@ function evalFetch(url, params) {
   inspectedWindowEval(scriptContent);
 }
 
+/**
+ * Generate fetch using request body
+ * @param {*} request 
+ */
 function requestBodyToFetch(request) {
   const { url } = request;
   const params = generateRequestParams(request);
@@ -67,7 +71,7 @@ function requestBodyToFetch(request) {
 }
 
 export default {
-  requestBodyToFetch,
   evalFetch,
+  requestBodyToFetch,
   generateRequestParams
 }
