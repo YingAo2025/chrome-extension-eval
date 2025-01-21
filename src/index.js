@@ -4,6 +4,25 @@ function createFetchFn(url, params) {
   return "fetch(" + '"' + url + '"' + ", " + params + ")";
 }
 
+function generateCurlCommand(request) {
+  const { method, url, headers, cookies } = request;
+  
+  let curlCommand = `curl -X ${method} "${url}"`;
+
+  // Add headers
+  headers.forEach(header => {
+      curlCommand += ` \\\n  -H '${header.name}: ${header.value}'`;
+  });
+
+  // Add cookies
+  if (cookies.length > 0) {
+      const cookieString = cookies.map(cookie => `${cookie.name}=${cookie.value}`).join('; ');
+      curlCommand += ` \\\n  -H 'Cookie: ${cookieString}'`;
+  }
+
+  return curlCommand;
+}
+
 function inspectedWindowEval(scriptContent) {
   chrome.devtools.inspectedWindow.eval(scriptContent);
 }
@@ -73,5 +92,6 @@ function requestBodyToFetch(request) {
 export {
   evalFetch,
   requestBodyToFetch,
+  generateCurlCommand,
   generateRequestParams
 }
