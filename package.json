@@ -22,5 +22,11 @@
     "rollup": "^4.31.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "exports": {
+    "import": "./dist/index.js"
+  },
+  "dependencies": {
+    "@rollup/plugin-babel": "^6.0.4"
   }
 }
