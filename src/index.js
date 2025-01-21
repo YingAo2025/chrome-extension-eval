@@ -70,7 +70,7 @@ function requestBodyToFetch(request) {
   evalFetch(url, params);
 }
 
-export default {
+export {
   evalFetch,
   requestBodyToFetch,
   generateRequestParams
